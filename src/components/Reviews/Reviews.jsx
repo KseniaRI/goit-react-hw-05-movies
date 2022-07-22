@@ -10,7 +10,6 @@ export const Reviews = () => {
         const getReview = async (id) => {
             try {
                 const data = await fetchReviewById(id);
-                console.log(data.results);
                 const allReviews = data.results.map(({ author, content, id }) => ({ author, content, id }));
                 setReviews(allReviews);
             } catch (error) {

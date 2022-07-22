@@ -13,6 +13,16 @@ export const fetchTrendingMovies = async () => {
 }
 }
 
+export const fetchMovieByKeyWord = async (query) => {
+    try {
+        const response = await axios.get(`/search/movie?api_key=${API_KEY}&query=${query}`);
+        return response.data;
+    
+} catch (error) {
+        console.log(error.message);
+}
+}
+
 export const fetchMovieById = async (movieId) => {
     try {
         const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
@@ -39,3 +49,5 @@ export const fetchReviewById = async (movieId) => {
         console.log(error.message);
     }  
 }
+
+
