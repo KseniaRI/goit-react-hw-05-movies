@@ -10,7 +10,6 @@ export const Cast = () => {
         const getCast = async (id) => {
             try {
                 const data = await fetchCastById(id);
-                console.log(data.cast);
                 const castInfo = data.cast.map(({ name, character, profile_path, id }) => ({ name, character, profile_path, id }));
                 setCast(castInfo);
             } catch (error) {
