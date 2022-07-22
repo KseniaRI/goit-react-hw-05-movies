@@ -10,7 +10,6 @@ export const MovieCard = () => {
         const getMovie = async(id) => {
           try {
               const data = await fetchMovieById(id);
-              console.log(data);
               setMovie(data);
           } catch (error) {
               console.log(error.message);
@@ -28,7 +27,7 @@ export const MovieCard = () => {
 
         return (
         <div>
-            <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt="{title}" />
+            <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
             <h2>{title}</h2>
             <p>User score: <span>{userScore}%</span></p>
             <h3>Overview</h3>
