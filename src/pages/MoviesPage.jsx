@@ -10,7 +10,6 @@ export const MoviesPage = () => {
     const [movies, setMovies] = useState({});
     const { movieId } = useParams();
     const query = searchParams.get("query") ?? "";
-    console.log(query);
      
     useEffect(() => {
         const getMoviesByKeyWord = async (keyWord) => {
@@ -21,25 +20,26 @@ export const MoviesPage = () => {
                 console.log(error);
             }
         }
-       
-             getMoviesByKeyWord(query);
+        if (query === "") return;
+
+        getMoviesByKeyWord(query);
         
     }, [query])
 
     return (
         movieId ? <Outlet /> 
                 :   <>
-                <Formik initialValues={{ query: '' }}
-                    validationSchema={Yup.object({ query: Yup.string() })}
-                    onSubmit={({ query }, { resetForm }) => {
-                        setSearchParams({ query });
-                        resetForm();
-                    }}
+                        <Formik initialValues={{ query: '' }}
+                        validationSchema={Yup.object({ query: Yup.string() })}
+                        onSubmit={({ query }, { resetForm }) => {
+                            setSearchParams({ query });
+                            resetForm();
+                        }}
                         >
-                        <Form>
-                        <Field name='query' type='text' />
-                            <button type='submit'>Search</button>
-                        </Form>
+                            <Form>
+                                <Field name='query' type='text' />
+                                <button type='submit'>Search</button>
+                            </Form>
                         </Formik>
                         {Object.keys(movies).length > 0 && <MovieList movies={movies} />}                 
                     </>
