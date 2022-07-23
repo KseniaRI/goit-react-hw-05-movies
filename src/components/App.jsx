@@ -18,6 +18,7 @@ export const App = () => {
           </Route>
         </Route>
       </Route>
+      <Route path="*" element={<HomePage />} />
     </Routes>
   );
 };

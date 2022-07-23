@@ -1,11 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { MovieCard } from '../components/MovieCard/MovieCard';
 
 export const MovieDetailsPage = () => {
-    
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/";
         return (
             <>
-                <Link to='/'>Go back</Link>
+                <Link to={backLinkHref}>Go back</Link>
                 <MovieCard />
                 <div>
                     <h3>Additional information</h3>
