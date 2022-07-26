@@ -1,4 +1,4 @@
-import { Outlet, useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import { MovieList } from '../components/MovieList/MovieList';
 import * as Yup from 'yup';
@@ -8,7 +8,6 @@ import { fetchMovieByKeyWord } from 'services/movieAPI';
 export const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [movies, setMovies] = useState({});
-    const { movieId } = useParams();
     const query = searchParams.get("query") ?? "";
      
     useEffect(() => {
@@ -27,8 +26,8 @@ export const MoviesPage = () => {
     }, [query])
 
     return (
-        movieId ? <Outlet /> 
-                :   <>
+      
+                   <>
                         <Formik initialValues={{ query: '' }}
                         validationSchema={Yup.object({ query: Yup.string() })}
                         onSubmit={({ query }, { resetForm }) => {
