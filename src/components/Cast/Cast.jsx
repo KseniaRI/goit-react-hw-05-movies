@@ -30,7 +30,6 @@ const Cast = () => {
     if (cast.length > 0) {
         
         return (
-            
             <ul>
                 {cast.map(({ name, character, profile_path, id }) => {
                     let path = "";
