@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchMovieById } from "services/movieAPI";
 import { useParams } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export const MovieCard = () => {
     const [movie, setMovie] = useState({});
@@ -40,3 +41,13 @@ export const MovieCard = () => {
     
 }
  
+MovieCard.propTypes = {
+    movieId: PropTypes.string,
+    movie: PropTypes.shape({
+        title: PropTypes.string,
+        vote_average: PropTypes.number,
+        overview: PropTypes.string,
+        genres: PropTypes.arrayOf(PropTypes.string),
+        poster_path: PropTypes.string,
+    })
+}

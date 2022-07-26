@@ -1,7 +1,8 @@
+import { Suspense } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { MovieCard } from '../components/MovieCard/MovieCard';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/";
         return (
@@ -13,8 +14,12 @@ export const MovieDetailsPage = () => {
                     <Link to='cast'>Cast</Link>
                     <Link to='reviews'>Reviews</Link>
                 </div>
-                <Outlet/>
+                <Suspense fallback={null}>
+                    <Outlet/>
+                </Suspense>
+                
             </>
         )
-    
 }
+
+export default MovieDetailsPage;
