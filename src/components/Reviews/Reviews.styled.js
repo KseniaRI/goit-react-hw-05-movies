@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ReviewsList = styled.ul`
 list-style: none;
+padding-left: ${p => p.theme.space[5]}px;
+padding-right: ${p => p.theme.space[5]}px;
 `;
 
 export const ReviewsItem = styled.li`
