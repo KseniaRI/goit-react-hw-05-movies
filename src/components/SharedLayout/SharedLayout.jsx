@@ -13,7 +13,7 @@ export const SharedLayout = () => {
                 <Box as="nav"
                     display="flex"
                     alignItems="center"
-                    justifyContent="flex-start"
+                    justifyContent="center"
                     >
                     <StyledLink to='/'>Home</StyledLink>
                     <StyledLink to='/movies'>Movies</StyledLink>

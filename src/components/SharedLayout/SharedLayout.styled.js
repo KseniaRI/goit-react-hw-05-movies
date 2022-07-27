@@ -5,8 +5,8 @@ export const StyledLink = styled(Link)`
 text-decoration: none;
 display: block;
 color: ${p => p.theme.colors.secondary};
-font-size: ${p => p.theme.fontSizes.m};
-font-weight: ${p=> p.theme.fontWeights.bold};
+font-size: ${p => p.theme.fontSizes.l};
+font-weight: ${p => p.theme.fontWeights.bold};
 
 &:hover,
 &:focus{
@@ -14,7 +14,7 @@ font-weight: ${p=> p.theme.fontWeights.bold};
 }
 
 &:not(:last-child){
-    margin-right: ${p => p.theme.space[4]}px;
+    margin-right: ${p => p.theme.space[7]}px;
    
 }
 `
