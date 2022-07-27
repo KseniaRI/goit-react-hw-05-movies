@@ -4,6 +4,7 @@ import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { StyledLink, Title} from './MovieDetailsPage.styled';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { Box } from "components/Box";
+import { Loader } from "components/Loader/Loader";
 
 const MovieDetailsPage = () => {
     const location = useLocation();
@@ -22,7 +23,7 @@ const MovieDetailsPage = () => {
                     </Box>
                     
                 </Box>
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader />}>
                     <Outlet/>
                 </Suspense>
                 

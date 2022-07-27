@@ -2,19 +2,18 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
-    text: '#2a2a2a',
     background: 'skyblue',
-    primary: '#000',
+    primary: '#2a2a2a',
     secondary: '#05a',
     accent: '#05a',
     muted: '#f6f6f6',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
-  fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
-    monospace: 'Menlo, monospace',
-  },
+  // fonts: {
+  //   body: 'system-ui, sans-serif',
+  //   heading: 'system-ui, sans-serif',
+  //   monospace: 'Menlo, monospace',
+  // },
   fontSizes: {
     xs: '12px',
     s: '14px',
