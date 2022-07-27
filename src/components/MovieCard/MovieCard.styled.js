@@ -4,6 +4,7 @@ export const Title = styled.h1`
 color: ${p => p.theme.colors.primary};
 margin-bottom: ${p => p.theme.space[3]}px;
 font-size: ${p => p.theme.fontSizes.l};
+text-align: center;
 `;
 
 export const Img = styled.img`
