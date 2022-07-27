@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchTrendingMovies } from "services/movieAPI";
-import { MovieList } from '../components/MovieList/MovieList';
-import { Loader } from '../components/Loader/Loader';
+import { MovieList } from '../../components/MovieList/MovieList';
+import { Loader } from '../../components/Loader/Loader';
+import { Title } from "./HomePage.styled";
 
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
@@ -22,7 +23,7 @@ const HomePage = () => {
     }, [])
     return (
         <>
-            <p>TrendingToday</p>
+            <Title>Trending Today</Title>
             {isLoading && <Loader />}
             {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />} 
         </>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewById } from "services/movieAPI";
 import PropTypes from 'prop-types'; 
+import { ReviewsList, ReviewsItem, AuthorName, Message } from "./Reviews.styled";
 
 const Reviews = () => {
     const { movieId } = useParams();
@@ -29,23 +30,23 @@ const Reviews = () => {
 
     if (reviews.length > 0) {
         return (
-            <ul>
+            <ReviewsList>
                 {reviews.map(({ author, content, id }) => {
                     return (
-                        <li key={id}>
-                            <p>Author: {author}</p>
+                        <ReviewsItem key={id}>
+                            <AuthorName>Author: {author}</AuthorName>
                             <p>{content}</p>
-                        </li>
+                        </ReviewsItem>
                     )
                 }
                 )}
-            </ul>
+            </ReviewsList>
         )
     }
     else if (isLoading) {
         return <Loader/>
     } else {
-        return <p>We don't have any reviews for this movie</p>;
+        return <Message>We don't have any reviews for this movie</Message>;
     }
 }
 

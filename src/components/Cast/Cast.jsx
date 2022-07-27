@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchCastById } from "services/movieAPI";
 import { Loader } from 'components/Loader/Loader';
 import PropTypes from 'prop-types';
+import { CastList, CastItem, Img, Text, TextCharacter } from "./Cast.styled";
 
 const Cast = () => {
     const { movieId } = useParams();
@@ -30,21 +31,22 @@ const Cast = () => {
     if (cast.length > 0) {
         
         return (
-            <ul>
+            <CastList>
                 {cast.map(({ name, character, profile_path, id }) => {
                     let path = "";
                     profile_path ? path = `https://www.themoviedb.org/t/p/w138_and_h175_face/${profile_path}`
                                  : path = 'https://cdn-icons-png.flaticon.com/512/2922/2922506.png';
                         return (
-                            <li key={id}>
-                                <img width="138" src={path} alt={name} />
-                                <p>{name}</p>
-                                <p>Character: {character}</p>
-                            </li>
+                            <CastItem key={id}>
+                                <Img src={path} alt={name} />
+                                <Text>{name}</Text>
+                                <Text>Character:</Text>
+                                <TextCharacter>{character}</TextCharacter>
+                            </CastItem>
                         )
                 }
                 )}
-            </ul>
+            </CastList>
         )
     } 
     if (isLoading) {

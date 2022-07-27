@@ -1,10 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
-import { Formik, Field, Form } from 'formik';
-import { MovieList } from '../components/MovieList/MovieList';
+import { ErrorMessage, Formik } from 'formik';
+import { MovieList } from '../../components/MovieList/MovieList';
 import * as Yup from 'yup';
 import { useEffect, useState } from 'react';
 import { fetchMovieByKeyWord } from 'services/movieAPI';
-import { Loader } from '../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
+import { StyledField, StyledForm, Button, Message } from './MoviesPage.styled';
 
 const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -39,13 +40,15 @@ const MoviesPage = () => {
                      resetForm();
                  }}
                  >
-                     <Form>
-                         <Field name='query' type='text' />
-                         <button type='submit'>Search</button>
-                     </Form>
+                     <StyledForm>
+                        <StyledField name='query' type='text' placeholder="Enter movie's title"/>
+                        <Button type='submit'>Search</Button>
+                        <ErrorMessage name='query' color="red">Something went wrong</ErrorMessage>
+                     </StyledForm>
                 </Formik>
                  {isLoading && <Loader />}
-                 {Object.keys(movies).length > 0 && <MovieList movies={movies} />}                 
+                {Object.keys(movies).length > 0 && <MovieList movies={movies} />}    
+                {Object.keys(movies).length === 0 && query && <Message>There is no movie with key word ${query}</Message>}
              </>
     )
 }

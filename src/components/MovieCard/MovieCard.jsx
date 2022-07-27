@@ -3,6 +3,8 @@ import { fetchMovieById } from "services/movieAPI";
 import { useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Box } from "components/Box";
+import { Title, Img, Text, SecondaryTitle } from "./MovieCard.styled";
+
 
 export const MovieCard = () => {
     const [movie, setMovie] = useState({});
@@ -35,20 +37,21 @@ export const MovieCard = () => {
                 borderStyle='solid'
                 borderColor='accent'
                 borderRadius="normal"
-                bg="background"
+                bg="white"
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
                 mr="auto"
                 ml="auto"
+                mb="4"
                 as="div">
-            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} height="400" width="300" alt={title} />
-            <h2>{title}</h2>
-            <p>User score: <span>{userScore}%</span></p>
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <h4>Genres</h4>
-            <p>{movieGenres}</p>
+            <Img src={`https://image.tmdb.org/t/p/w500${poster_path}`} height="400" width="300" alt={title} />
+            <Title>{title}</Title>
+            <SecondaryTitle>User score: <span>{userScore}%</span></SecondaryTitle>
+            <SecondaryTitle>Overview</SecondaryTitle>
+            <Text>{overview}</Text>
+            <SecondaryTitle>Genres</SecondaryTitle>
+            <Text>{movieGenres}</Text>
         </Box>
         )
     }
